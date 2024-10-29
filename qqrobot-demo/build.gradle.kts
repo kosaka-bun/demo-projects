@@ -26,7 +26,7 @@ dependencies {
     //机器人框架
     implementation(libs.qqrobot.spring.boot.starter)
     //一些杂项
-    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("cn.hutool:hutool-all:5.8.18")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation(libs.honoka.utils)

@@ -1,8 +1,8 @@
 package de.honoka.qqrobot.demo;
 
-import de.honoka.qqrobot.framework.Framework;
-import de.honoka.qqrobot.framework.model.RobotMessage;
-import de.honoka.qqrobot.framework.model.RobotMultipartMessage;
+import de.honoka.qqrobot.framework.api.Framework;
+import de.honoka.qqrobot.framework.api.model.RobotMessage;
+import de.honoka.qqrobot.framework.api.model.RobotMultipartMessage;
 import de.honoka.qqrobot.starter.command.CommandMethodArgs;
 import de.honoka.qqrobot.starter.common.annotation.Command;
 import de.honoka.qqrobot.starter.common.annotation.RobotController;
@@ -72,21 +72,25 @@ public class DemoController {
 
     @Command("会话")
     public void session(CommandMethodArgs args) {
-        sessionManager.openSession(args.getGroup(), args.getQq(), session -> {
-            session.reply("会话已开启，现在会回复你每条消息的字符个数，" +
+        sessionManager.openSession(
+            args.getGroup(),
+            args.getQq(),
+            session -> {
+                session.reply(
+                    "会话已开启，现在会回复你每条消息的字符个数，" +
                     "不会响应其他命令\n" +
-                    "输入exit退出会话，20秒内不回复自动结束会话");
-            for(; ; ) {
-                String str = session.waitingForReply(20)
-                        .contentToString();
-                if(str.trim().equals("exit")) {
-                    session.reply("会话退出");
-                    break;
+                    "输入exit退出会话，20秒内不回复自动结束会话"
+                );
+                for(; ; ) {
+                    String str = session.waitingForReply(20).contentToString();
+                    if(str.trim().equals("exit")) {
+                        session.reply("会话退出");
+                        break;
+                    }
+                    session.reply("内容：" + str + "\n字符数：" + str.length());
                 }
-                session.reply("内容：" + str + "\n字符数：" + str.length());
-            }
-        }, session -> {
-            session.reply("自定义的会话超时信息");
-        });
+            },
+            session -> session.reply("自定义的会话超时信息")
+        );
     }
 }
