@@ -8,9 +8,9 @@ import de.honoka.qqrobot.starter.common.annotation.Command;
 import de.honoka.qqrobot.starter.common.annotation.RobotController;
 import de.honoka.qqrobot.starter.component.session.SessionManager;
 import de.honoka.sdk.util.various.ImageUtils;
+import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Lazy;
 
-import javax.annotation.Resource;
 import java.io.InputStream;
 
 @SuppressWarnings("unused")
@@ -61,7 +61,7 @@ public class DemoController {
     public String atTest(CommandMethodArgs args) {
         RobotMessage<Long> at = args.getAt(0);
         String str = "qq: " + at.getContent();
-        str += "\nusername: " + framework.getNickOrCard(0L, at.getContent());
+        str += "\nusername: " + framework.getNickOrCard(args.getGroup(), at.getContent());
         return str;
     }
 

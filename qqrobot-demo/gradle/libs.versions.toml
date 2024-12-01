@@ -1,12 +1,12 @@
 [versions]
 # project modules version
-root = "1.0.0-dev"
+root = "1.0.1"
 
 # dependencies version
+honoka-spring-boot-starter = "1.0.0"
 kotlin = "1.8.10"
-spring-boot = "2.7.5"
-qqrobot-spring-boot-starter = "1.4.0-dev"
-honoka-utils = "1.0.12-dev"
+spring-boot = "3.2.5"
+qqrobot-spring-boot-starter = "2.0.0"
 lombok = "1.18.26"
 
 [plugins]
@@ -17,6 +17,6 @@ dependency-management = "io.spring.dependency-management:1.1.4"
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
 
 [libraries]
+honoka-spring-boot-starter = { module = "de.honoka.sdk:honoka-spring-boot-starter", version.ref = "honoka-spring-boot-starter" }
 qqrobot-spring-boot-starter = { module = "de.honoka.qqrobot:qqrobot-spring-boot-starter", version.ref = "qqrobot-spring-boot-starter" }
-honoka-utils = { module = "de.honoka.sdk:honoka-utils", version.ref = "honoka-utils" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
