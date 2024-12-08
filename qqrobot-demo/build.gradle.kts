@@ -23,11 +23,9 @@ dependencies {
     //Spring Boot
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation(libs.honoka.spring.boot.starter)
     //机器人框架
     implementation(libs.qqrobot.spring.boot.starter)
     //一些杂项
-    implementation("cn.hutool:hutool-all:5.8.18")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     listOf(
